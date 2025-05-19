@@ -1,52 +1,37 @@
-import { useState } from 'react'
-import './App.css'
-import Home from './components/Home'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Header from './components/Header'
+import { useState } from "react";
+import "./App.css";
+import Home from "./components/Home";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Header from "./components/Header";
 
 function App() {
-  const [currentComponent , setCurrentComponent] = useState("home")
+  const [currentComponent, setCurrentComponent] = useState("home");
   const handleComponent = () => {
     switch (currentComponent) {
       case "home":
-        return <Home />  
-        
+        return <Home />;
 
       case "about":
-        return <About />  
-        
-
+        return <About />;
       case "skills":
-        return <Skills />  
-        
+        return <Skills />;
       case "projects":
-        return <Projects />  
-        
-
+        return <Projects />;
       case "contact":
-        return <Contact />  
-        
-
-      
+        return <Contact />;
       default:
-        return <Home/>
-
+        return <Home />;
     }
-  }
+  };
   return (
     <>
-      <Header
-        setCurrentComponent={setCurrentComponent}
-      />
-      {
-        handleComponent()
-      }
-
+      <Header setCurrentComponent={setCurrentComponent} />
+      {handleComponent()}
     </>
   );
 }
 
-export default App
+export default App;

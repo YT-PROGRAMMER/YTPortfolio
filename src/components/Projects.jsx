@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import img1 from "../assets/image/1.png";
 import img2 from "../assets/image/2.png";
 import img3 from "../assets/image/3.png";
@@ -13,7 +13,8 @@ import img11 from "../assets/image/9.png";
 import img12 from "../assets/image/10.png";
 import img13 from "../assets/image/libarary.png";
 import img14 from "../assets/image/react.png";
-const projects = [
+
+const projectsData = [
   {
     title: "kasper",
     type: "html&css",
@@ -102,43 +103,53 @@ const projects = [
     img: img14,
   },
 ];
+
+const listLinks = [
+  {
+    title: "All",
+    type: "all",
+  },
+  {
+    title: "Html & Css",
+    type: "html&css",
+  },
+  {
+    title: "js",
+    type: "js",
+  },
+  {
+    title: "React",
+    type: "react",
+  },
+  {
+    title: "Bootstrap",
+    type: "bootstrap",
+  },
+];
+
 const Projects = () => {
-  const [Projects, setProjects] = useState(projects);
-  const filtera = (filtring) => {
-    const html_css = projects.filter((item) => item.type === "html&css");
-    const js = projects.filter((item) => item.type === "js");
-    const bootstrap = projects.filter((item) => item.type === "bootstrap");
-    const react = projects.filter((item) => item.type === "react");
-    switch (filtring) {
-      case "all":
-        setProjects(projects);
-        break;
-      case "html&css":
-        setProjects(html_css);
-        break;
-      case "js":
-        setProjects(js);
-        break;
-      case "bootstrap":
-        setProjects(bootstrap);
-        break;
-      case "react":
-        setProjects(react);
-        break;
-      default:
-        setProjects(projects);
+  const [projects, setProjects] = useState(projectsData);
+  const [currentComponent, setCurrentComponent] = useState("all");
+
+  const handleFilter = (filterBy) => {
+    if (filterBy === "all") {
+      setProjects(projectsData);
+    } else {
+      const filteredProjects = projectsData.filter(
+        (project) => project.type === filterBy
+      );
+      setProjects(filteredProjects);
     }
   };
-  const lis = document.querySelectorAll(".projects ul li");
-  lis.forEach((ele) => {
-    ele.addEventListener("click", () => {
-      lis.forEach((e) => {
-        e.classList.remove("active");
-      });
 
-      this.classList.add("active");
-    });
-  });
+  useEffect(() => {
+    handleFilter(currentComponent);
+  }, [currentComponent]);
+
+  const filterProjects = (type) => {
+    setCurrentComponent(type);
+  };
+
   return (
     <div className="projects">
       <div className="container">
@@ -147,33 +158,31 @@ const Projects = () => {
             My Recent <span>Works</span>
           </h1>
           <ul>
-            <li className="active">
-              <button onClick={() => filtera("all")}>All</button>
-            </li>
-            <li>
-              <button onClick={() => filtera("html&css")}>Html & Css</button>
-            </li>
-            <li>
-              <button onClick={() => filtera("js")}>JavaScript</button>
-            </li>
-            <li>
-              <button onClick={() => filtera("bootstrap")}>Bootstrap</button>
-            </li>
-            <li>
-              <button onClick={() => filtera("react")}>React</button>
-            </li>
+            {listLinks.map((project) => (
+              <li
+                key={project.type}
+                className={currentComponent === project.type ? "active" : ""}
+              >
+                <button
+                  style={{ cursor: "pointer" }}
+                  onClick={() => filterProjects(project.type)}
+                >
+                  {project.title}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="cards">
-          {Projects.map((i, id) => {
+          {projects.map((project, id) => {
             return (
               <div key={id}>
                 <div className="front">
-                  <img src={i.img} />
+                  <img src={project.img} />
                 </div>
                 <div className="back">
-                  <h1>{i.title}</h1>
-                  <a href={i.url}>
+                  <h1>{project.title}</h1>
+                  <a href={project.url}>
                     <i className="fa-solid fa-link"></i>
                   </a>
                 </div>
