@@ -322,6 +322,10 @@ header .mobile ul button {
 .projects .container .head h1 {
   color: white;
 }
+
+.projects .container .head h1 span {
+    color: #00adb5;
+}
 .projects .container .head ul {
   margin-top: 15px;
   display: flex;
@@ -495,7 +499,7 @@ position: relative;
   }
 
   .projects .container .card {
-    width: 180px;
+    width: 180px; 
   }
   .projects .container .card .front {
     width: 150px;
