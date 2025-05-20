@@ -324,7 +324,7 @@ header .mobile ul button {
 }
 
 .projects .container .head h1 span {
-    color: #00adb5;
+  color: #00adb5;
 }
 .projects .container .head ul {
   margin-top: 15px;
@@ -337,7 +337,7 @@ header .mobile ul button {
   text-align: center;
 }
 .projects .container .head ul li {
-position: relative;
+  position: relative;
   margin-right: 5px;
   margin-bottom: 15px;
   border-radius: 25px;
@@ -413,10 +413,9 @@ position: relative;
 }
 /* end projects */
 
-
 /* start contact */
 .contact {
-  height: calc(100% - 63px);
+  height: calc(100% - (50px + 63px));
   position: relative;
 }
 .contact .container {
@@ -445,16 +444,16 @@ position: relative;
 .contact .container .right .img2 {
   position: absolute;
   left: 0px;
-  
+
   transform: rotate(-50deg);
   max-width: 80px;
 }
-.contact .container form label{
+.contact .container form label {
   display: block;
   color: #eeeeee;
   margin-bottom: 3px;
 }
-.contact .container form .inputs input, 
+.contact .container form .inputs input,
 textarea {
   background-color: #393e46cb;
   border: none;
@@ -473,37 +472,41 @@ textarea {
   cursor: pointer;
 }
 textarea {
-  height:160px;
+  height: 160px;
   width: 350px;
   display: block;
   margin-bottom: 8px;
 }
 form .inputs {
   display: flex;
-  
 }
 form .inputs .in {
   margin-right: 17px;
-} 
+}
 form .inputs input {
   margin-bottom: 23px;
 }
-.contact .container form .inputs input, 
+.contact .container form .inputs input,
 textarea:focus {
   outline: none;
 }
-
+.contact footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 50px;
+}
+.contact footer a {
+  color: #eeee;
+  margin-right: 20px;
+  font-size: 20px;
+  transition: 0.6s;
+}
+.contact footer a:hover {
+  color: #00adb5;
+}
 /* end contact */
-
-
-
-
-
-
-
-
-
-
 
 /*start mobile */
 @media (max-width: 1000px) {
@@ -597,7 +600,7 @@ textarea:focus {
   }
 
   .projects .container .card {
-    width: 180px; 
+    width: 180px;
   }
   .projects .container .card .front {
     width: 150px;
@@ -617,13 +620,11 @@ textarea:focus {
     margin-left: 20px;
   }
 
-
-
   .contact .container {
     flex-direction: column;
     justify-content: center;
   }
-  .contact .container .right img{
+  .contact .container .right img {
     display: none !important;
   }
   .contact .container form .inputs {
