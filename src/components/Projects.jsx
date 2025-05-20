@@ -176,12 +176,12 @@ const Projects = () => {
         <div className="cards">
           {projects.map((project, id) => {
             return (
-              <div key={id}>
+              <div key={id} className="card">
                 <div className="front">
                   <img src={project.img} />
                 </div>
                 <div className="back">
-                  <h1>{project.title}</h1>
+                  <p>{project.title}</p>
                   <a href={project.url}>
                     <i className="fa-solid fa-link"></i>
                   </a>
