@@ -155,7 +155,7 @@ const Projects = () => {
       <div className="container">
         <div className="head">
           <h1>
-            My git<span> Works</span>
+            My <span> Works</span>
           </h1>
           <ul>
             {listLinks.map((project) => (
