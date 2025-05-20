@@ -413,8 +413,100 @@ position: relative;
 }
 /* end projects */
 
+
+/* start contact */
+.contact {
+  height: calc(100% - 63px);
+  position: relative;
+}
+.contact .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+.contact .container .right {
+  position: relative;
+}
+.contact .container .right h1 {
+  color: #fff;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact .container .right h1 span {
+  color: #00adb5;
+}
+.contact .container .right .img1 {
+  max-width: 150px;
+  margin-left: 150px;
+}
+.contact .container .right .img2 {
+  position: absolute;
+  left: 0px;
+  
+  transform: rotate(-50deg);
+  max-width: 80px;
+}
+.contact .container form label{
+  display: block;
+  color: #eeeeee;
+  margin-bottom: 3px;
+}
+.contact .container form .inputs input, 
+textarea {
+  background-color: #393e46cb;
+  border: none;
+  color: white;
+  font-size: 17px;
+  padding: 10px;
+  border-radius: 7px;
+}
+.contact .container form input[type="submit"] {
+  background-color: #00adb5;
+  border: none;
+  color: white;
+  font-size: 17px;
+  padding: 7px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+textarea {
+  height:160px;
+  width: 350px;
+  display: block;
+  margin-bottom: 8px;
+}
+form .inputs {
+  display: flex;
+  
+}
+form .inputs .in {
+  margin-right: 17px;
+} 
+form .inputs input {
+  margin-bottom: 23px;
+}
+.contact .container form .inputs input, 
+textarea:focus {
+  outline: none;
+}
+
+/* end contact */
+
+
+
+
+
+
+
+
+
+
+
 /*start mobile */
-@media (max-width: 870px) {
+@media (max-width: 1000px) {
   .about .text .photoOne {
     position: absolute;
     bottom: 420px;
@@ -427,6 +519,12 @@ position: relative;
   }
   .about .text .photoThree {
     display: none;
+  }
+  .contact .container .right .img2 {
+    display: none !important;
+  }
+  .contact .container .right .img1 {
+    margin: 0 !important;
   }
 }
 @media (max-width: 767px) {
@@ -517,6 +615,28 @@ position: relative;
   }
   .projects .container {
     margin-left: 20px;
+  }
+
+
+
+  .contact .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact .container .right img{
+    display: none !important;
+  }
+  .contact .container form .inputs {
+    flex-direction: column;
+  }
+  .contact .container form .inputs input {
+    width: 180px;
+    border-radius: 0;
+  }
+  .contact .container form textarea {
+    border-radius: 0;
+    width: 180px;
+    height: 250px;
   }
 }
 /*end mobile */
